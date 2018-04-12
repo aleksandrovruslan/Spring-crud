@@ -45,6 +45,7 @@ hs_err_pid*# Compiled class file
 *.iml
 
 #other
+.mvn
 /target/
 /out/
 /nbproject
