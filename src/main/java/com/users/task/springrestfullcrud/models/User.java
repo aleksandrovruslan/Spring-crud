@@ -1,7 +1,5 @@
 package com.users.task.springrestfullcrud.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -25,7 +23,6 @@ public class User implements Serializable {
 //    @Pattern(
 //            regexp = "([A-Z{1,}])([0-9{1,}])"
 //    )
-    @JsonIgnore
     private String password;
 
     @ManyToMany(cascade = {CascadeType.MERGE

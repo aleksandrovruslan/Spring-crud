@@ -9,4 +9,5 @@ public class SpringRestfullCrudApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringRestfullCrudApplication.class, args);
 	}
+
 }

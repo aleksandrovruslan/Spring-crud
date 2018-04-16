@@ -3,44 +3,39 @@ package com.users.task.springrestfullcrud.controllers;
 import com.users.task.springrestfullcrud.models.User;
 import com.users.task.springrestfullcrud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
-@RequestMapping("/api")
 public class UsersController {
+
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     public List<User> list() {
         return userService.getUsersList();
     }
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+    @GetMapping("/get/{id}")
     public User user(@PathVariable("id") long id) {
         return userService.getUser(id);
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable("id") long id) {
         userService.deleteUser(id);
     }
 
-    //{name: "Вася", login: "vasa", password: "123123", roles: {1, 3, 5}}
     @PostMapping("/add")
-    public Long add(@RequestParam String name, @RequestParam String login, @RequestParam String password) {
-        User user = new User();
-        user.setName(name);
-        user.setLogin(login);
-        user.setPassword(password);
-        return userService.addUser(user);
+    public void add(@RequestBody User user) {
+        userService.addUser(user);
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.PUT)
+    @PutMapping("/edit")
     public void edit(@RequestBody User user) {
-        userService.editUser(user);
+        userService.edit(user);
     }
+
 }

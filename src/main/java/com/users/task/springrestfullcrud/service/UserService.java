@@ -10,6 +10,7 @@ public interface UserService {
     User getUser(long id);
     void deleteUser(long id);
     Long addUser(User user);
-    void editUser(User user);
+//    void editUser(User user, long[] rolesId);
+    void edit(User user);
 
 }

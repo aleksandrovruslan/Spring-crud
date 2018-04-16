@@ -10,6 +10,7 @@ public interface UserDAO {
     User getUser(Long id);
     void deleteUser(Long id);
     Long addUser(User user);
-    void editUser(User user);
+//    void editUser(User user, long[] rolesId);
+    void edit(User user);
 
 }
